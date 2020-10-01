@@ -1,0 +1,30 @@
+* Fråga om namn
+* Fråga om antal spel
+* Button start
+    -> player = new player(get Element namn)
+    -> this.name = namn
+    -> this.points = 0
+
+    -> game = new Game(get Element antal spel)
+    -> this.numberOfRounds
+
+---frågeformulär försvinner
+---första frågan visas
+
+new Question
+ ->this.q
+ ->this.a
+ ->this.correct
+från fetch
+
+i game
+    ->loopar igenom numberOfRounds
+    ->varje runda ändrar värde på question.q och motvarande .a
+    ->sparar varje svar i html-collection user_answers
+
+    -->igame?? metod correct(user_answers, question.a)
+    -->för varje korrekt svar -> ++player.points
+
+
+
+writeQuestion byter ut innerHTML för varje index när knappen trycks på
