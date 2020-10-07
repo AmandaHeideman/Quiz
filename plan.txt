@@ -28,3 +28,5 @@ i game
 
 
 writeQuestion byter ut innerHTML för varje index när knappen trycks på
+
+Läs på om async/await
