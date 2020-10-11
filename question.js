@@ -1,21 +1,9 @@
 class Question{
-    constructor(i){
-        //this.question = []; //används inte i nuläget
-        this.getQuestion(i);
-        //this.printQuestion();
-        
+    constructor(result, rounds){
+        this.question = result;
+        this.printQuestion(result[0]);
     }
-    getQuestion(i){
-        fetch("https://quizapi.io/api/v1/questions?apiKey=lAbxxIyZH7KpJEH70P6eGGbueQmlZ4KHdQsk7BVV&limit="+i)
-        .then(response => response.json())
-        .then(result => { //result = vårt api-svar i objektformat
-            for(let j=0; j<i; j++){
-                //this.question.push(result[j]);
-                this.printQuestion(result[j]);
-            }
-        })
-        
-    }
+    
     printQuestion(result){
         //skriver ut frågor och svarsalternativ på sidan
 
@@ -25,6 +13,7 @@ class Question{
         
         let answers_arr = Object.values(result.answers); 
         question_field.innerHTML = result.question;
+
         let i = 0;
         for (let element of answers_arr){   //lägger till alla svarsalternativ i en lista
             if(element!=null){
@@ -38,12 +27,13 @@ class Question{
                 a_checkbox.type = "radio";
                 a_checkbox.className = "check";
                 a_checkbox.name = result.id;
+                a_checkbox.id = i;
+
                 answer_list.appendChild(a_checkbox).after(a_list_item);
                 i++;
             }
         }
-
-        div.appendChild(question_field).after(answer_list);
         
+        div.appendChild(question_field).after(answer_list);
     }
 }
