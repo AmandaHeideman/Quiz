@@ -25,7 +25,7 @@ class Question{
                 a_list_item.name = result.id;
                 
                 a_checkbox.type = "radio";
-                a_checkbox.className = "check", j;
+                a_checkbox.className = "check";
                 a_checkbox.name = result.id;
                 a_checkbox.id = i;
 
