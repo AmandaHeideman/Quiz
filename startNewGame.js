@@ -23,22 +23,23 @@ class startNewGame{
         div.appendChild(game_q).after(game_input);
         btnDiv.appendChild(btn);
 
-        btn.addEventListener("click", function(e){
-            this.start(div, name_input, game_input);
-        });
+        let d = div.innerHTML;
+        let n = name_input.value;
+        let g = game_input.value;
+        btn.addEventListener("click", this.start(d, n, g));
     }
     start(div, name_input, game_input){
         let game;
         //rensar div:en så sidan blir tom, förutom knappen som har en egen div
-        div.innerHTML = "";
+        div = "";
 
         if (game==null){ //startar ett nytt spel ifall det inte redan finns ett
 
             //sparar spelarens namn i localStorage
-            localStorage.setItem("name_input", name_input.value);
+            localStorage.setItem("name_input", name_input);
 
-            let player = new Player(name_input.value);
-            game = new Game(game_input.value, player);
+            let player = new Player(name_input);
+            game = new Game(game_input, player);
         }
 
         game.getQuestion();

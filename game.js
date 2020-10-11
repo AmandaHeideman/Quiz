@@ -4,11 +4,11 @@ class Game{
         this.player = player;
         this.question;
     } 
-    async getQuestion(){
+    async getQuestion(i){
         await fetch("https://quizapi.io/api/v1/questions?apiKey=lAbxxIyZH7KpJEH70P6eGGbueQmlZ4KHdQsk7BVV&limit=1")
         .then(response => response.json())
         .then(result => { //result = vårt api-svar i objektformat
-            this.question = new Question(result);
+            this.question = new Question(result, i);
         }) 
     }
     playerAnswers(){
