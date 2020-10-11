@@ -26,10 +26,34 @@ class Game{
         }
     }
     correct(answersArray, playerArray){
+        let result = this.question.question[0];
         let playerArr = playerArray;
         let answersArr = answersArray;
-        if(playerArr.indexOf(true)===answersArr.indexOf("true")){
-            this.player.points++;
+
+        if(result.multiple_correct_answers ==="false"){
+            let newAnsArr = [];
+             answersArr.filter((curr_value, index) => {
+                if(curr_value === "true"){
+                    newAnsArr.push(index);
+                }
+            })
+            console.log(newAnsArr);
+            let newPlayArr = [];
+             playerArr.filter((curr_value, index) => {
+                if(curr_value === true){
+                    newPlayArr.push(index);
+                }
+            })
+            console.log(newPlayArr);
+            if(newAnsArr==newPlayArr){ //loopa varje index och jämför?
+                console.log("same");
+                this.player.points++;
+            }
+        }
+        else{
+            if(playerArr.indexOf(true)===answersArr.indexOf("true")){
+                this.player.points++;
+            }
         }
     }
 }

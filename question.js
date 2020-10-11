@@ -15,7 +15,6 @@ class Question{
         question_number.innerHTML = "Question " + i;
         question_field.innerHTML = result.question;
         let answers_arr = Object.values(result.answers); 
-
         let j = 0;
         for (let element of answers_arr){   //lägger till alla svarsalternativ i en lista
             if(element!=null){
@@ -26,7 +25,13 @@ class Question{
                 a_list_item.className = "listItem";
                 a_list_item.name = result.id;
                 
-                a_checkbox.type = "radio";
+                if (result.multiple_correct_answers ==="true"){
+                    a_checkbox.type = "checkbox";
+                }
+                else if(result.multiple_correct_answers ==="false"){
+                    a_checkbox.type = "radio";
+                }
+
                 a_checkbox.className = "check";
                 a_checkbox.name = result.id;
                 a_checkbox.id = j;
@@ -38,13 +43,5 @@ class Question{
         div.appendChild(question_number);
         div.appendChild(question_field).after(answer_list);
     }
-    click(){
-        for(let i=0; i<this.questions_arr.length; i++){
-            //console.log(this.questions_arr[i].answers);
-            let answers = document.getElementById(i);
-            console.log(this.questions_arr[i]);
-            console.log(answers);
-            console.log(answers.checked);
-        }
-    }
+    
 }
