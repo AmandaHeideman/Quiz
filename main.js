@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     let div = document.getElementById("div"); 
 
     let name_q = document.createElement("p");
-    name_q.innerHTML = "Enter you name:";
+    name_q.innerHTML = "Enter your name:";
     let name_input = document.createElement("input");
 
     let storeName = localStorage.getItem("name_input")

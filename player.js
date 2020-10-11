@@ -10,7 +10,6 @@ class Player{
         let welcome = document.createElement("p");
         welcome.innerHTML = "Welcome, " + this.name + "!";
         div.appendChild(welcome);
-        
     }
     getPoints(){
         

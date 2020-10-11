@@ -19,13 +19,13 @@ class Question{
             if(element!=null){
                 let a_list_item = document.createElement("li");
                 let a_checkbox = document.createElement("input");
-
+                
                 a_list_item.innerHTML = element;
                 a_list_item.className = "listItem";
                 a_list_item.name = result.id;
-
+                
                 a_checkbox.type = "radio";
-                a_checkbox.className = "check";
+                a_checkbox.className = "check", j;
                 a_checkbox.name = result.id;
                 a_checkbox.id = i;
 
@@ -35,5 +35,14 @@ class Question{
         }
         
         div.appendChild(question_field).after(answer_list);
+    }
+    click(){
+        for(let i=0; i<this.questions_arr.length; i++){
+            //console.log(this.questions_arr[i].answers);
+            let answers = document.getElementById(i);
+            console.log(this.questions_arr[i]);
+            console.log(answers);
+            console.log(answers.checked);
+        }
     }
 }
