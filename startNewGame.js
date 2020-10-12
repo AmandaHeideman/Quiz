@@ -1,7 +1,8 @@
 class startNewGame{
     constructor(){
+        //skapar startsidan där spelare får mata in namn och antal spel
+        
         var self = this;
-       //skapar startsidan där spelare får mata in namn och antal spel
         let div = document.getElementById("div"); 
 
         let name_q = document.createElement("p");
@@ -19,7 +20,7 @@ class startNewGame{
         game_input.min = 5;
         game_input.max = 10;
         game_input.placeholder = 5;
-        this.gameInput = game_input.value;
+        //this.gameValue = game_input.value;
 
         /* let option;
         let game_select = document.createElement("select");
@@ -44,22 +45,26 @@ class startNewGame{
         this.game;
         this.player;
         this.i = 1;
+
+        //När knappen trycks startas spelet
         this.btn.addEventListener("click", function(e){
-            self.start()
+            self.start(game_input.value);
         });
     }
     
-    start(){
+    start(gameValue){
         
         //startar ett nytt spel ifall det inte redan finns ett
         if (this.game==null){ 
             //sparar spelarens namn i localStorage
             localStorage.setItem("name_input", this.nameInput);
             
-            this.player = new Player(this.nameInput);
-            this.game = new Game(this.gameInput, this.player);
+            this.player = new Player(this.nameInput); //om man byter namn i ett spel ändras inte local storage
+            this.game = new Game(gameValue, this.player);
         }
-        if(this.i<=this.gameInput){
+
+        //fortsätter spelet tills önskat antal frågor är besvarade
+        if(this.i<=gameValue){
             this.game.playerAnswers();
             this.game.getQuestion(this.i);
             this.i++
@@ -67,7 +72,9 @@ class startNewGame{
             //rensar div:en så sidan blir tom inför nästa fråga, förutom knappen som har en egen div
             div.innerHTML = "";
         }
-        else if(this.i>this.gameInput){
+
+        //avslutar spelet
+        else if(this.i>gameValue){
             div.innerHTML = "Game over"
             let endscreen = document.createElement("p");
             endscreen.innerHTML = this.player.name + " got " + this.player.points + " points"

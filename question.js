@@ -1,4 +1,6 @@
 class Question{
+    //skapar en ny fråga, skriver ut dem på sidan
+
     constructor(result, i){
         this.question = result;
         this.printQuestion(result[0], i);
@@ -6,6 +8,7 @@ class Question{
     
     printQuestion(result, i){
         //skriver ut frågor och svarsalternativ på sidan
+        //att fixa: hantera specialtecken
 
         let div = document.getElementById("div");
         let question_number = document.createElement("h3");

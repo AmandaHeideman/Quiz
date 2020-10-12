@@ -1,4 +1,6 @@
 class Game{
+    //skapar ett nytt spel, hanterar frågor och svar
+
     constructor(number_of_rounds, player){
         this.rounds = number_of_rounds;
         this.player = player;
@@ -15,8 +17,8 @@ class Game{
     }
     playerAnswers(){
         //lägger in spelarens svar i en array, så man kan rätta svaren i correct
-        
-        if(this.question!=undefined){
+
+        if(this.question!=undefined){ //första gången detta anropas har ingen fråga skrivits ut än
             let correctAnswers_arr = Object.values(this.question.question[0].correct_answers) 
             let playerAnswers_arr = Array(6);
 
@@ -54,6 +56,8 @@ class Game{
                 this.player.points++;
             }
         }
+
+        //om det finns ett rätt svar så jämförs indexen av spelarens svar och det rätta svaret
         else{
             if(playerArr.indexOf(true)===answersArr.indexOf("true")){
                 this.player.points++;
