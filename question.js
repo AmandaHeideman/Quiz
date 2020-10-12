@@ -8,7 +8,6 @@ class Question{
     
     printQuestion(result, i){
         //skriver ut frågor och svarsalternativ på sidan
-        //att fixa: hantera specialtecken
 
         let div = document.getElementById("div");
         let question_number = document.createElement("h3");
@@ -16,15 +15,17 @@ class Question{
         let answer_list = document.createElement("ul");
         
         question_number.innerHTML = "Question " + i;
-        question_field.innerHTML = result.question;
+        question_field.innerText = result.question;
         let answers_arr = Object.values(result.answers); 
         let j = 0;
-        for (let element of answers_arr){   //lägger till alla svarsalternativ i en lista
+
+        //lägger till alla svarsalternativ i en lista
+        for (let element of answers_arr){   
             if(element!=null){
                 let a_list_item = document.createElement("li");
                 let a_checkbox = document.createElement("input");
                 
-                a_list_item.innerHTML = element;
+                a_list_item.innerText = element;
                 a_list_item.className = "listItem";
                 a_list_item.name = result.id;
                 
@@ -33,9 +34,9 @@ class Question{
                 }
                 else if(result.multiple_correct_answers ==="false"){
                     a_checkbox.type = "radio";
+                    a_checkbox.className = "check";
                 }
 
-                a_checkbox.className = "check";
                 a_checkbox.name = result.id;
                 a_checkbox.id = j;
 

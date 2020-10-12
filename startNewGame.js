@@ -1,7 +1,7 @@
 class startNewGame{
-    constructor(){
-        //skapar startsidan där spelare får mata in namn och antal spel
-        
+    //skapar startsidan där spelare får mata in namn och antal spel
+    
+    constructor(){ 
         var self = this;
         let div = document.getElementById("div"); 
 
@@ -11,7 +11,6 @@ class startNewGame{
 
         let storeName = localStorage.getItem("name_input")
         name_input.value = storeName;
-        this.nameInput = name_input.value;
 
         let game_q = document.createElement("p");
         game_q.innerHTML = "Enter number of questions:";
@@ -19,8 +18,7 @@ class startNewGame{
         game_input.type = "number";
         game_input.min = 5;
         game_input.max = 10;
-        game_input.placeholder = 5;
-        //this.gameValue = game_input.value;
+        game_input.value = 5;
 
         /* let option;
         let game_select = document.createElement("select");
@@ -48,18 +46,19 @@ class startNewGame{
 
         //När knappen trycks startas spelet
         this.btn.addEventListener("click", function(e){
-            self.start(game_input.value);
+            self.start(game_input.value, name_input.value);
         });
     }
     
-    start(gameValue){
+    start(gameValue, nameValue){
         
         //startar ett nytt spel ifall det inte redan finns ett
         if (this.game==null){ 
+
             //sparar spelarens namn i localStorage
-            localStorage.setItem("name_input", this.nameInput);
+            localStorage.setItem("name_input", nameValue); 
             
-            this.player = new Player(this.nameInput); //om man byter namn i ett spel ändras inte local storage
+            this.player = new Player(nameValue); 
             this.game = new Game(gameValue, this.player);
         }
 
@@ -75,11 +74,15 @@ class startNewGame{
 
         //avslutar spelet
         else if(this.i>gameValue){
+            let welcome = document.getElementById("welcome");
+            welcome.innerHTML = "";
             div.innerHTML = "Game over"
             let endscreen = document.createElement("p");
             endscreen.innerHTML = this.player.name + " got " + this.player.points + " points"
             div.appendChild(endscreen);
             this.btn.innerHTML = "Play again?"
+
+            //startar ett nytt spel om spelaren trycker på knappen
             this.btn.addEventListener("click", function(e){
                 btnDiv.innerHTML = "";
                 div.innerHTML ="";
