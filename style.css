@@ -1,7 +1,102 @@
+/*
+Färgschema
+
+light shade #F4F7F5
+light accent  #A78F97
+main color #613E6C
+dark accent #C0538A
+dark shades  #1F1420 
+*/
+
+html{
+    background-color: #F4F7F5;
+    color: #1F1420;
+    font-family: georgia;
+}
+
+/*---Textstyling---*/
+h1{
+    margin: 0;
+    padding: 10px;
+    font-size: 3em;
+}
+h3{
+    margin-top: 0px;
+    font-size: 1.5em;
+}
+p{
+    margin-top: 0px;
+}
+
+/*---Inputstyling---*/
+input{
+    font-family: georgia;
+    border-radius: 3px;
+    border: solid #C0538A;
+    padding: 3px;
+}
+
+/*---Knappstyling---*/
+button{
+    padding: 5px;
+    position: relative;
+    top:-10px;
+    text-align: center;
+    font-family: georgia;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    background-color: #613E6C;
+    color: #F4F7F5;
+}
+button :focus, button:active{
+    outline: none;
+    border:none;
+}
+#btnDiv{
+    display: flex;
+    justify-content: center;
+}
+
+/*---Divstyling---*/
+#header{
+    width: auto;
+    margin: 0px 0px 20px 0px;
+    padding: 0px;
+    background-color: #613E6C;
+    color: #F4F7F5;
+    text-align: center;
+    font-style: italic;
+} 
+#div{
+    background-color: #A78F97;
+    border-radius: 10px;
+    padding: 10px;
+    width: 60%;
+    margin: auto;
+}
+
+#q_num_div, #welcome, #game_over{
+    background-color: #C0538A;
+    color: #F4F7F5;
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    height: 30px;
+    position: relative;
+    top:-20px;
+}
+#start_div, #q_div, #endscreen{
+    background-color: #F4F7F5;
+    margin: 10px;
+    padding: 10px;
+    border: solid #613E6C 5px;
+}
+
+/*---Liststyling---*/
 .check{
     float:left;
 }
 .listItem{
     list-style-type: none;
 }
-

@@ -10,10 +10,15 @@ class Question{
         //skriver ut frågor och svarsalternativ på sidan
 
         let div = document.getElementById("div");
+        let questions_div = document.createElement("div");
+        let question_number_div = document.createElement("div");
         let question_number = document.createElement("h3");
         let question_field = document.createElement("p");
         let answer_list = document.createElement("ul");
         
+        questions_div.id = "q_div";
+        question_number_div.id = "q_num_div";
+
         question_number.innerHTML = "Question " + i;
         question_field.innerText = result.question;
         let answers_arr = Object.values(result.answers); 
@@ -44,8 +49,9 @@ class Question{
                 j++;
             }
         }
-        div.appendChild(question_number);
-        div.appendChild(question_field).after(answer_list);
+        div.appendChild(question_number_div).after(questions_div);
+        question_number_div.appendChild(question_number);
+        questions_div.appendChild(question_field).after(answer_list);
     }
     
 }
