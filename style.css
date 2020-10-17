@@ -27,6 +27,17 @@ h3{
 p{
     margin-top: 0px;
 }
+#endscreen_points{
+    font-size: 1.3em;
+    text-align: center;
+    
+}
+.q_number{
+    font-weight: bold;
+}
+.italic{
+    font-style: italic;
+}
 
 /*---Inputstyling---*/
 input{
@@ -35,6 +46,12 @@ input{
     border: solid #C0538A;
     padding: 3px;
 }
+/* p.start_q{
+    float:left;
+}
+input.start_input{
+    float: left;
+} */
 
 /*---Knappstyling---*/
 button{
@@ -80,6 +97,7 @@ button :focus, button:active{
     background-color: #C0538A;
     color: #F4F7F5;
     width: 30%;
+    min-width: 140px;
     margin: auto;
     text-align: center;
     height: 30px;

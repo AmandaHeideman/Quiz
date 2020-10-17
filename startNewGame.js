@@ -13,14 +13,18 @@ class startNewGame{
 
         let name_q = document.createElement("p");
         name_q.innerHTML = "Enter your name:";
+        name_q.className = "start_q";
         let name_input = document.createElement("input");
+        name_input.className = "start_input";
 
         let storeName = localStorage.getItem("name_input")
         name_input.value = storeName;
 
         let game_q = document.createElement("p");
         game_q.innerHTML = "Enter number of questions:";
+        game_q.className = "start_q";
         let game_input = document.createElement("input");
+        game_input.className = "start_input";
         game_input.type = "number";
         game_input.min = 5;
         game_input.max = 10;
@@ -70,14 +74,22 @@ class startNewGame{
 
         //avslutar spelet
         else if(this.i>gameValue){
+            this.game.playerAnswers();
+            
             div.innerHTML = "";
             let game_over = document.createElement("h3");
             game_over.innerHTML = "Game over";
             game_over.id = "game_over";
-            let endscreen = document.createElement("p");
+            let endscreen = document.createElement("div");
             endscreen.id = "endscreen";
-            endscreen.innerHTML = this.player.name + " got " + this.player.points + " points"
+            let endscreen_points = document.createElement("h3");
+            endscreen_points.id = "endscreen_points";
+            endscreen_points.innerHTML = this.player.name + " got " + this.player.points + " points"
+            endscreen.appendChild(endscreen_points);
             div.appendChild(game_over).after(endscreen);
+
+            this.game.showResult();
+            
             this.btn.innerHTML = "Play again?"
 
             //startar ett nytt spel om spelaren trycker på knappen

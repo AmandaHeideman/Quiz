@@ -54,4 +54,37 @@ class Question{
         questions_div.appendChild(question_field).after(answer_list);
     }
     
+    printResult(questions, answers, correct_answers){
+        let div = document.getElementById("endscreen");
+
+        for(let i = 0; i<questions.length; i++){
+            let q_number = document.createElement("p");
+            q_number.className = "q_number";
+            q_number.innerHTML = "Question " + (i+1);
+
+            let q = document.createElement("p");
+            q.innerHTML = questions[i];
+
+            let a = document.createElement("span");
+            let a1 = document.createElement("span");
+            a1.className = "italic";
+            a1.innerHTML = "Your answer: ";
+            let a2 = document.createElement("p");
+            a2.innerHTML = answers[i];
+            a.appendChild(a1).after(a2);
+
+            let corr_a = document.createElement("span");
+            let corr_a1 = document.createElement("span");
+            corr_a1.className = "italic";
+            corr_a1.innerHTML = "Correct answer: ";
+            let corr_a2 = document.createElement("p");
+            corr_a2.innerHTML = correct_answers[i];
+            corr_a.appendChild(corr_a1).after(corr_a2);
+
+            div.appendChild(q_number);
+            div.appendChild(q);
+            div.appendChild(a);
+            div.append(corr_a);
+        }
+    }
 }
